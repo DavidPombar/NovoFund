@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @fund.name %>
+</p>
+
+<p>
+  <strong>Profile:</strong>
+  <%= @fund.profile %>
+</p>
+
+<p>
+  <strong>Overview:</strong>
+  <%= @fund.overview %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @fund.url %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @fund.address %>
+</p>
+
+<p>
+  <strong>Stage:</strong>
+  <%= @fund.stage %>
+</p>
+
+<p>
+  <strong>Minticket:</strong>
+  <%= @fund.minTicket %>
+</p>
+
+<p>
+  <strong>Maxticket:</strong>
+  <%= @fund.maxTicket %>
+</p>
+
+<%= link_to 'Edit', edit_fund_path(@fund) %> |
+<%= link_to 'Back', funds_path %>
