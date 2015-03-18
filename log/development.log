@@ -1821,3 +1821,160 @@ ActionView::Template::Error (undefined local variable or method `reviews_path' f
   Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
   Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
   Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.2ms)
+
+
+Started GET "/funds" for 127.0.0.1 at 2015-03-18 16:43:43 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FundsController#index as HTML
+  [1m[35mFund Load (0.6ms)[0m  SELECT "funds".* FROM "funds"
+  Rendered funds/index.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 1550ms (Views: 1522.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/funds" for 127.0.0.1 at 2015-03-18 16:43:45 +0100
+Processing by FundsController#index as HTML
+  [1m[36mFund Load (0.3ms)[0m  [1mSELECT "funds".* FROM "funds"[0m
+  Rendered funds/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 16:43:45 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 16:43:45 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 16:43:45 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 16:43:45 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 16:43:45 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 16:43:45 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 16:43:46 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 16:43:46 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 16:43:46 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 16:43:46 +0100
+
+
+Started GET "/funds/new" for 127.0.0.1 at 2015-03-18 16:43:48 +0100
+Processing by FundsController#new as HTML
+  Rendered funds/_form.html.erb (27.9ms)
+  Rendered funds/new.html.erb within layouts/application (34.2ms)
+Completed 200 OK in 45ms (Views: 44.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/funds" for 127.0.0.1 at 2015-03-18 16:43:51 +0100
+Processing by FundsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LyWTCM35awScuNknB/UnWiX8usf/3ki/19jBz2NQrSg=", "fund"=>{"name"=>"asdfasdf", "profile"=>"", "overview"=>"", "url"=>"", "address"=>"", "stage"=>"", "minTicket"=>"", "maxTicket"=>""}, "commit"=>"Create Fund"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (107.1ms)[0m  [1mINSERT INTO "funds" ("address", "created_at", "name", "overview", "profile", "stage", "updated_at", "url") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", ""], ["created_at", Wed, 18 Mar 2015 15:43:51 UTC +00:00], ["name", "asdfasdf"], ["overview", ""], ["profile", ""], ["stage", ""], ["updated_at", Wed, 18 Mar 2015 15:43:51 UTC +00:00], ["url", ""]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/funds/2
+Completed 302 Found in 116ms (ActiveRecord: 108.1ms)
+
+
+Started GET "/funds/2" for 127.0.0.1 at 2015-03-18 16:43:52 +0100
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFund Load (0.4ms)[0m  [1mSELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  Rendered funds/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 16ms (Views: 13.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 16:43:52 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 16:43:52 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 16:43:52 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 16:43:52 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 16:43:52 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 16:43:52 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 16:43:52 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 16:43:52 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 16:43:52 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 16:43:52 +0100
+
+
+Started GET "/funds/2/reviews/new" for 127.0.0.1 at 2015-03-18 16:43:53 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"2"}
+  [1m[35mFund Load (0.1ms)[0m  SELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1  [["id", "2"]]
+  Rendered reviews/_form.html.erb (7.8ms)
+  Rendered reviews/new.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 56ms (Views: 20.9ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/funds/2/reviews" for 127.0.0.1 at 2015-03-18 16:43:56 +0100
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LyWTCM35awScuNknB/UnWiX8usf/3ki/19jBz2NQrSg=", "review"=>{"title"=>"asdfasdf", "opinion"=>"", "pitchingEfficiency"=>"", "favorableDealTerms"=>"", "operatingCompetence"=>"", "trackRecord"=>"", "fund_id"=>"2"}, "commit"=>"Create Review", "fund_id"=>"2"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "reviews" ("created_at", "fund_id", "opinion", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", Wed, 18 Mar 2015 15:43:56 UTC +00:00], ["fund_id", 2], ["opinion", ""], ["title", "asdfasdf"], ["updated_at", Wed, 18 Mar 2015 15:43:56 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/reviews/5
+Completed 302 Found in 7ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/reviews/5" for 127.0.0.1 at 2015-03-18 16:43:56 +0100
+Processing by ReviewsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mReview Load (0.2ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT 1  [["id", "5"]]
+  Rendered reviews/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 14ms (Views: 11.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 16:43:56 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 16:43:56 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 16:43:56 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 16:43:56 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 16:43:56 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 16:43:56 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 16:43:56 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 16:43:56 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 16:43:56 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 16:43:56 +0100
