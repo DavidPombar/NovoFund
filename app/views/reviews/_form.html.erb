@@ -1,0 +1,45 @@
+<%= form_for(@review) do |f| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :opinion %><br>
+    <%= f.text_area :opinion %>
+  </div>
+  <div class="field">
+    <%= f.label :pitchingEfficiency %><br>
+    <%= f.number_field :pitchingEfficiency %>
+  </div>
+  <div class="field">
+    <%= f.label :favorableDealTerms %><br>
+    <%= f.number_field :favorableDealTerms %>
+  </div>
+  <div class="field">
+    <%= f.label :operatingCompetence %><br>
+    <%= f.number_field :operatingCompetence %>
+  </div>
+  <div class="field">
+    <%= f.label :trackRecord %><br>
+    <%= f.number_field :trackRecord %>
+  </div>
+  <div class="field">
+    <%= f.label :fund_id %><br>
+    <%= f.number_field :fund_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

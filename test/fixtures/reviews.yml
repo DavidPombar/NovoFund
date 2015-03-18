@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  opinion: MyText
+  pitchingEfficiency: 1
+  favorableDealTerms: 1
+  operatingCompetence: 1
+  trackRecord: 1
+  fund_id: 1
+
+two:
+  title: MyString
+  opinion: MyText
+  pitchingEfficiency: 1
+  favorableDealTerms: 1
+  operatingCompetence: 1
+  trackRecord: 1
+  fund_id: 1

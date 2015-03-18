@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @review.title %>
+</p>
+
+<p>
+  <strong>Opinion:</strong>
+  <%= @review.opinion %>
+</p>
+
+<p>
+  <strong>Pitchingefficiency:</strong>
+  <%= @review.pitchingEfficiency %>
+</p>
+
+<p>
+  <strong>Favorabledealterms:</strong>
+  <%= @review.favorableDealTerms %>
+</p>
+
+<p>
+  <strong>Operatingcompetence:</strong>
+  <%= @review.operatingCompetence %>
+</p>
+
+<p>
+  <strong>Trackrecord:</strong>
+  <%= @review.trackRecord %>
+</p>
+
+<p>
+  <strong>Fund:</strong>
+  <%= @review.fund_id %>
+</p>
+
+<%= link_to 'Edit', edit_review_path(@review) %> |
+<%= link_to 'Back', reviews_path %>
