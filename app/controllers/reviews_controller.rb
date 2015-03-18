@@ -14,7 +14,8 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
-    @review = Review.new
+    @fund = Fund.find(params[:fund_id])
+    @review = @fund.reviews.build
   end
 
   # GET /reviews/1/edit

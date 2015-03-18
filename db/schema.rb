@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150315220441) do
+ActiveRecord::Schema.define(version: 20150318080742) do
 
   create_table "funds", force: true do |t|
     t.string   "name"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 20150315220441) do
     t.string   "stage"
     t.integer  "minTicket"
     t.integer  "maxTicket"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reviews", force: true do |t|
+    t.string   "title"
+    t.text     "opinion"
+    t.integer  "pitchingEfficiency"
+    t.integer  "favorableDealTerms"
+    t.integer  "operatingCompetence"
+    t.integer  "trackRecord"
+    t.integer  "fund_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

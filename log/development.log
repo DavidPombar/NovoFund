@@ -7,3 +7,1817 @@ Migrating to CreateFunds (20150315220441)
   [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150315220441"]]
   [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateReviews (20150318080742)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "reviews" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "opinion" text, "pitchingEfficiency" integer, "favorableDealTerms" integer, "operatingCompetence" integer, "trackRecord" integer, "fund_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20150318080742"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/funds" for 127.0.0.1 at 2015-03-18 09:16:08 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FundsController#index as HTML
+  [1m[35mFund Load (0.2ms)[0m  SELECT "funds".* FROM "funds"
+  Rendered funds/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 1665ms (Views: 1641.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/funds" for 127.0.0.1 at 2015-03-18 09:16:10 +0100
+Processing by FundsController#index as HTML
+  [1m[36mFund Load (0.3ms)[0m  [1mSELECT "funds".* FROM "funds"[0m
+  Rendered funds/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 09:16:11 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 09:16:11 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 09:16:11 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 09:16:11 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 09:16:11 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 09:16:11 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 09:16:11 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 09:16:11 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 09:16:11 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 09:16:11 +0100
+
+
+Started GET "/funds/new" for 127.0.0.1 at 2015-03-18 09:16:12 +0100
+Processing by FundsController#new as HTML
+  Rendered funds/_form.html.erb (30.5ms)
+  Rendered funds/new.html.erb within layouts/application (34.4ms)
+Completed 200 OK in 41ms (Views: 39.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/funds" for 127.0.0.1 at 2015-03-18 09:16:42 +0100
+Processing by FundsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9eLqnIlP4RmF38OLINLpErREMIjFc89yDIhDrq7A/sU=", "fund"=>{"name"=>"asdf", "profile"=>"", "overview"=>"asfasdf", "url"=>"www.lalala.com", "address"=>"", "stage"=>"", "minTicket"=>"100", "maxTicket"=>"50000"}, "commit"=>"Create Fund"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (107.4ms)[0m  [1mINSERT INTO "funds" ("address", "created_at", "maxTicket", "minTicket", "name", "overview", "profile", "stage", "updated_at", "url") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["address", ""], ["created_at", Wed, 18 Mar 2015 08:16:42 UTC +00:00], ["maxTicket", 50000], ["minTicket", 100], ["name", "asdf"], ["overview", "asfasdf"], ["profile", ""], ["stage", ""], ["updated_at", Wed, 18 Mar 2015 08:16:42 UTC +00:00], ["url", "www.lalala.com"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/funds/1
+Completed 302 Found in 116ms (ActiveRecord: 108.4ms)
+
+
+Started GET "/funds/1" for 127.0.0.1 at 2015-03-18 09:16:42 +0100
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFund Load (0.3ms)[0m  [1mSELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 17ms (Views: 13.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 09:16:42 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 09:16:42 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 09:16:42 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 09:16:42 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 09:16:42 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 09:16:42 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 09:16:42 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 09:16:42 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 09:16:42 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 09:16:42 +0100
+
+
+Started GET "/funds" for 127.0.0.1 at 2015-03-18 09:16:44 +0100
+Processing by FundsController#index as HTML
+  [1m[35mFund Load (0.2ms)[0m  SELECT "funds".* FROM "funds"
+  Rendered funds/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/funds/1" for 127.0.0.1 at 2015-03-18 09:16:46 +0100
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFund Load (0.2ms)[0m  [1mSELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/funds" for 127.0.0.1 at 2015-03-18 09:18:29 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FundsController#index as HTML
+  [1m[35mFund Load (0.2ms)[0m  SELECT "funds".* FROM "funds"
+  Rendered funds/index.html.erb within layouts/application (14.6ms)
+Completed 200 OK in 80ms (Views: 56.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 09:18:29 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 09:18:29 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 09:18:29 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 09:18:29 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 09:18:29 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 09:18:29 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 09:18:29 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 09:18:29 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 09:18:29 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 09:18:29 +0100
+
+
+Started GET "/funds/1" for 127.0.0.1 at 2015-03-18 09:18:31 +0100
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFund Load (0.4ms)[0m  [1mSELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (11.6ms)
+Completed 500 Internal Server Error in 16ms
+
+ActionView::Template::Error (undefined method `new_fund_review_path' for #<#<Class:0x007fdbb3744050>:0x007fdbb250c720>):
+    41: </p>
+    42: 
+    43: <%= link_to 'Edit', edit_fund_path(@fund) %>
+    44: <%= link_to 'Create review', new_fund_review_path(@fund) %>|
+    45: <%= link_to 'Back', funds_path %>
+  app/views/funds/show.html.erb:44:in `_app_views_funds_show_html_erb___635345673796878318_70290783087840'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.9ms)
+
+
+Started GET "/funds/1" for 127.0.0.1 at 2015-03-18 09:18:31 +0100
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFund Load (0.1ms)[0m  SELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (12.8ms)
+Completed 500 Internal Server Error in 16ms
+
+ActionView::Template::Error (undefined method `new_fund_review_path' for #<#<Class:0x007fdbb3744050>:0x007fdbb29962f0>):
+    41: </p>
+    42: 
+    43: <%= link_to 'Edit', edit_fund_path(@fund) %>
+    44: <%= link_to 'Create review', new_fund_review_path(@fund) %>|
+    45: <%= link_to 'Back', funds_path %>
+  app/views/funds/show.html.erb:44:in `_app_views_funds_show_html_erb___635345673796878318_70290791797820'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.8ms)
+
+
+Started GET "/funds/1" for 127.0.0.1 at 2015-03-18 09:20:31 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFund Load (0.2ms)[0m  SELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 77ms (Views: 44.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 09:20:31 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 09:20:31 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 09:20:31 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 09:20:31 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 09:20:31 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 09:20:31 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 09:20:31 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 09:20:31 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 09:20:31 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 09:20:31 +0100
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 09:20:34 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+Completed 500 Internal Server Error in 4ms
+
+NoMethodError (undefined method `belong_to' for #<Class:0x007fedb35d65a8>):
+  app/models/review.rb:2:in `<class:Review>'
+  app/models/review.rb:1:in `<top (required)>'
+  app/controllers/reviews_controller.rb:17:in `new'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.9ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.5ms)
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 09:20:34 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `belong_to' for #<Class:0x007fedb47f0450>):
+  app/models/review.rb:2:in `<class:Review>'
+  app/models/review.rb:1:in `<top (required)>'
+  app/controllers/reviews_controller.rb:17:in `new'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.9ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.3ms)
+
+
+Started GET "/funds/1" for 127.0.0.1 at 2015-03-18 09:21:07 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFund Load (0.2ms)[0m  SELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 79ms (Views: 43.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 09:21:08 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 09:21:08 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 09:21:08 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 09:21:08 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 09:21:08 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 09:21:08 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 09:21:08 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 09:21:08 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 09:21:08 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 09:21:08 +0100
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 09:21:09 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  Rendered reviews/_form.html.erb (27.1ms)
+  Rendered reviews/new.html.erb within layouts/application (31.3ms)
+Completed 500 Internal Server Error in 42ms
+
+ActionView::Template::Error (undefined method `reviews_path' for #<#<Class:0x007fc9fd4ec298>:0x007fc9fd4e6a00>):
+    1: <%= form_for(@review) do |f| %>
+    2:   <% if @review.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+  app/views/reviews/_form.html.erb:1:in `_app_views_reviews__form_html_erb__872918468481621883_70252756710720'
+  app/views/reviews/new.html.erb:3:in `_app_views_reviews_new_html_erb__3990478784825867555_70252757449720'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.1ms)
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 09:21:09 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  Rendered reviews/_form.html.erb (9.8ms)
+  Rendered reviews/new.html.erb within layouts/application (11.2ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (undefined method `reviews_path' for #<#<Class:0x007fc9fd4ec298>:0x007fc9fc636ff0>):
+    1: <%= form_for(@review) do |f| %>
+    2:   <% if @review.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+  app/views/reviews/_form.html.erb:1:in `_app_views_reviews__form_html_erb__872918468481621883_70252749716660'
+  app/views/reviews/new.html.erb:3:in `_app_views_reviews_new_html_erb__3990478784825867555_70252749760680'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.7ms)
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 09:21:28 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  Rendered reviews/_form.html.erb (17.5ms)
+  Rendered reviews/new.html.erb within layouts/application (18.4ms)
+Completed 500 Internal Server Error in 21ms
+
+ActionView::Template::Error (undefined method `reviews_path' for #<#<Class:0x007fc9fd4ec298>:0x007fc9fc200030>):
+    1: <%= form_for(@review) do |f| %>
+    2:   <% if @review.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+  app/views/reviews/_form.html.erb:1:in `_app_views_reviews__form_html_erb__872918468481621883_70252756710720'
+  app/views/reviews/new.html.erb:3:in `_app_views_reviews_new_html_erb__3990478784825867555_70252757449720'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.5ms)
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 09:21:28 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  Rendered reviews/_form.html.erb (7.6ms)
+  Rendered reviews/new.html.erb within layouts/application (8.5ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (undefined method `reviews_path' for #<#<Class:0x007fc9fd4ec298>:0x007fc9fc64c530>):
+    1: <%= form_for(@review) do |f| %>
+    2:   <% if @review.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+  app/views/reviews/_form.html.erb:1:in `_app_views_reviews__form_html_erb__872918468481621883_70252749716660'
+  app/views/reviews/new.html.erb:3:in `_app_views_reviews_new_html_erb__3990478784825867555_70252749760680'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.4ms)
+
+
+Started GET "/funds/1" for 127.0.0.1 at 2015-03-18 09:26:03 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFund Load (0.3ms)[0m  SELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 78ms (Views: 52.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 09:26:03 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 09:26:03 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 09:26:03 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 09:26:03 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 09:26:03 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 09:26:03 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 09:26:03 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 09:26:03 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 09:26:03 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 09:26:03 +0100
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 09:26:05 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  Rendered reviews/_form.html.erb (27.4ms)
+  Rendered reviews/new.html.erb within layouts/application (31.0ms)
+Completed 200 OK in 42ms (Views: 36.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/reviews" for 127.0.0.1 at 2015-03-18 09:26:07 +0100
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9eLqnIlP4RmF38OLINLpErREMIjFc89yDIhDrq7A/sU=", "review"=>{"title"=>"", "opinion"=>"asfdadf", "pitchingEfficiency"=>"", "favorableDealTerms"=>"", "operatingCompetence"=>"", "trackRecord"=>"", "fund_id"=>""}, "commit"=>"Create Review"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.8ms)[0m  INSERT INTO "reviews" ("created_at", "opinion", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Wed, 18 Mar 2015 08:26:07 UTC +00:00], ["opinion", "asfdadf"], ["title", ""], ["updated_at", Wed, 18 Mar 2015 08:26:07 UTC +00:00]]
+  [1m[36m (2.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/reviews/1
+Completed 302 Found in 14ms (ActiveRecord: 6.6ms)
+
+
+Started GET "/reviews/1" for 127.0.0.1 at 2015-03-18 09:26:07 +0100
+Processing by ReviewsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mReview Load (0.2ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered reviews/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 11ms (Views: 8.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 09:26:08 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 09:26:08 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 09:26:08 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 09:26:08 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 09:26:08 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 09:26:08 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 09:26:08 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 09:26:08 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 09:26:08 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 09:26:08 +0100
+
+
+Started GET "/reviews" for 127.0.0.1 at 2015-03-18 09:26:10 +0100
+Processing by ReviewsController#index as HTML
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews"[0m
+  Rendered reviews/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/funds" for 127.0.0.1 at 2015-03-18 09:26:20 +0100
+Processing by FundsController#index as HTML
+  [1m[35mFund Load (0.2ms)[0m  SELECT "funds".* FROM "funds"
+  Rendered funds/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 09:26:21 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 09:26:21 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 09:26:21 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 09:26:21 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 09:26:21 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 09:26:21 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 09:26:21 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 09:26:21 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 09:26:21 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 09:26:21 +0100
+
+
+Started GET "/funds" for 127.0.0.1 at 2015-03-18 09:29:43 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FundsController#index as HTML
+  [1m[35mFund Load (0.2ms)[0m  SELECT "funds".* FROM "funds"
+  Rendered funds/index.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 81ms (Views: 58.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 09:29:43 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 09:29:43 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 09:29:43 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 09:29:44 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 09:29:44 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 09:29:44 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 09:29:44 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 09:29:44 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 09:29:44 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 09:29:44 +0100
+
+
+Started GET "/funds/1" for 127.0.0.1 at 2015-03-18 09:29:45 +0100
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFund Load (0.3ms)[0m  [1mSELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 10ms (Views: 7.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 09:29:46 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  Rendered reviews/_form.html.erb (28.9ms)
+  Rendered reviews/new.html.erb within layouts/application (33.9ms)
+Completed 500 Internal Server Error in 42ms
+
+ActionView::Template::Error (undefined method `reviews_path' for #<#<Class:0x007fcecba0fec8>:0x007fcecba0c188>):
+    1: <%= form_for(@review) do |f| %>
+    2:   <% if @review.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+  app/views/reviews/_form.html.erb:1:in `_app_views_reviews__form_html_erb__3644109626924764216_70263069340900'
+  app/views/reviews/new.html.erb:3:in `_app_views_reviews_new_html_erb___4361664682486488108_70263078118740'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.9ms)
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 09:29:46 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  Rendered reviews/_form.html.erb (10.2ms)
+  Rendered reviews/new.html.erb within layouts/application (11.4ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (undefined method `reviews_path' for #<#<Class:0x007fcecba0fec8>:0x007fcecbd27b88>):
+    1: <%= form_for(@review) do |f| %>
+    2:   <% if @review.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+  app/views/reviews/_form.html.erb:1:in `_app_views_reviews__form_html_erb__3644109626924764216_70263079726060'
+  app/views/reviews/new.html.erb:3:in `_app_views_reviews_new_html_erb___4361664682486488108_70263079773600'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (9.2ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (21.1ms)
+
+
+Started GET "/funds/1" for 127.0.0.1 at 2015-03-18 09:34:14 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFund Load (0.2ms)[0m  SELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 82ms (Views: 53.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 09:34:14 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 09:34:14 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 09:34:14 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 09:34:14 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 09:34:14 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 09:34:14 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 09:34:14 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 09:34:14 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 09:34:14 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 09:34:14 +0100
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 09:34:17 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  Rendered reviews/_form.html.erb (22.4ms)
+  Rendered reviews/new.html.erb within layouts/application (27.1ms)
+Completed 500 Internal Server Error in 34ms
+
+ActionView::Template::Error (undefined method `reviews_path' for #<#<Class:0x007fe14a9ca648>:0x007fe14a9c92e8>):
+    1: <%= form_for(@review) do |f| %>
+    2:   <% if @review.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+  app/views/reviews/_form.html.erb:1:in `_app_views_reviews__form_html_erb___3249703054725796376_70302797846600'
+  app/views/reviews/new.html.erb:3:in `_app_views_reviews_new_html_erb___2167061113441879512_70302798056720'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.1ms)
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 09:34:17 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  Rendered reviews/_form.html.erb (13.4ms)
+  Rendered reviews/new.html.erb within layouts/application (15.1ms)
+Completed 500 Internal Server Error in 18ms
+
+ActionView::Template::Error (undefined method `reviews_path' for #<#<Class:0x007fe14a9ca648>:0x007fe149beeee8>):
+    1: <%= form_for(@review) do |f| %>
+    2:   <% if @review.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+  app/views/reviews/_form.html.erb:1:in `_app_views_reviews__form_html_erb___3249703054725796376_70302790549280'
+  app/views/reviews/new.html.erb:3:in `_app_views_reviews_new_html_erb___2167061113441879512_70302790778100'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.9ms)
+
+
+Started GET "/funds/1" for 127.0.0.1 at 2015-03-18 09:41:35 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFund Load (0.4ms)[0m  SELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 81ms (Views: 55.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 09:41:35 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 09:41:35 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 09:41:35 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 09:41:35 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 09:41:35 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 09:41:35 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 09:41:35 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 09:41:35 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 09:41:35 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 09:41:35 +0100
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 09:41:37 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  Rendered reviews/_form.html.erb (12.7ms)
+  Rendered reviews/new.html.erb within layouts/application (16.4ms)
+Completed 500 Internal Server Error in 49ms
+
+ActionView::Template::Error (undefined method `reviews_path' for #<#<Class:0x007fb14c539dc8>:0x007fb14c5381d0>):
+    1: <%= form_for(@review) do |f| %>
+    2:   <% if @review.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+  app/views/reviews/_form.html.erb:1:in `_app_views_reviews__form_html_erb__1372633769359792695_70199732777980'
+  app/views/reviews/new.html.erb:3:in `_app_views_reviews_new_html_erb__2381608518795583146_70199733214260'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.2ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.8ms)
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 09:41:37 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  Rendered reviews/_form.html.erb (11.2ms)
+  Rendered reviews/new.html.erb within layouts/application (13.1ms)
+Completed 500 Internal Server Error in 17ms
+
+ActionView::Template::Error (undefined method `reviews_path' for #<#<Class:0x007fb14c539dc8>:0x007fb14c7cf948>):
+    1: <%= form_for(@review) do |f| %>
+    2:   <% if @review.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+  app/views/reviews/_form.html.erb:1:in `_app_views_reviews__form_html_erb__1372633769359792695_70199734563120'
+  app/views/reviews/new.html.erb:3:in `_app_views_reviews_new_html_erb__2381608518795583146_70199734594800'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.5ms)
+
+
+Started GET "/funds/1" for 127.0.0.1 at 2015-03-18 09:48:33 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFund Load (0.2ms)[0m  SELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 81ms (Views: 47.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 09:48:34 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 09:48:34 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 09:48:34 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 09:48:34 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 09:48:34 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 09:48:34 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 09:48:34 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 09:48:34 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 09:48:34 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 09:48:34 +0100
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 09:48:36 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  Rendered reviews/_form.html.erb (3.6ms)
+  Rendered reviews/new.html.erb within layouts/application (7.3ms)
+Completed 500 Internal Server Error in 46ms
+
+ActionView::Template::Error (can't write unknown attribute `html'):
+    1: <%= form_for(:fund, @review) do |f| %>
+    2:   <% if @review.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+  app/views/reviews/_form.html.erb:1:in `_app_views_reviews__form_html_erb___1618763034575844246_70182961332140'
+  app/views/reviews/new.html.erb:3:in `_app_views_reviews_new_html_erb__2704763857341478539_70182987021020'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.1ms)
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 09:48:36 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  Rendered reviews/_form.html.erb (6.3ms)
+  Rendered reviews/new.html.erb within layouts/application (8.3ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (can't write unknown attribute `html'):
+    1: <%= form_for(:fund, @review) do |f| %>
+    2:   <% if @review.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+  app/views/reviews/_form.html.erb:1:in `_app_views_reviews__form_html_erb___1618763034575844246_70182968003580'
+  app/views/reviews/new.html.erb:3:in `_app_views_reviews_new_html_erb__2704763857341478539_70182968053640'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.4ms)
+
+
+Started GET "/funds/1/" for 127.0.0.1 at 2015-03-18 10:00:07 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFund Load (0.2ms)[0m  SELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 79ms (Views: 50.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 10:00:08 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 10:00:08 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 10:00:08 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 10:00:08 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 10:00:08 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 10:00:08 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 10:00:08 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 10:00:08 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 10:00:08 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 10:00:08 +0100
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 10:00:10 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  [1m[36mFund Load (0.2ms)[0m  [1mSELECT "funds".* FROM "funds" WHERE ('id') LIMIT 1[0m
+Completed 500 Internal Server Error in 6ms
+
+NoMethodError (undefined method `reviews' for nil:NilClass):
+  app/controllers/reviews_controller.rb:18:in `new'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.8ms)
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 10:00:10 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  [1m[35mFund Load (0.2ms)[0m  SELECT "funds".* FROM "funds" WHERE ('id') LIMIT 1
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `reviews' for nil:NilClass):
+  app/controllers/reviews_controller.rb:18:in `new'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.1ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.1ms)
+
+
+Started GET "/funds/1/" for 127.0.0.1 at 2015-03-18 10:00:48 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFund Load (0.2ms)[0m  SELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 77ms (Views: 49.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 10:00:48 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 10:00:48 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 10:00:48 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 10:00:48 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 10:00:48 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 10:00:48 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 10:00:48 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 10:00:48 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 10:00:48 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 10:00:48 +0100
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 10:00:51 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  Rendered reviews/_form.html.erb (40.8ms)
+  Rendered reviews/new.html.erb within layouts/application (44.5ms)
+Completed 200 OK in 57ms (Views: 50.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/reviews" for 127.0.0.1 at 2015-03-18 10:00:55 +0100
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9eLqnIlP4RmF38OLINLpErREMIjFc89yDIhDrq7A/sU=", "review"=>{"title"=>"aasf", "opinion"=>"", "pitchingEfficiency"=>"", "favorableDealTerms"=>"", "operatingCompetence"=>"", "trackRecord"=>"", "fund_id"=>""}, "commit"=>"Create Review"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (4.4ms)[0m  INSERT INTO "reviews" ("created_at", "opinion", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Wed, 18 Mar 2015 09:00:55 UTC +00:00], ["opinion", ""], ["title", "aasf"], ["updated_at", Wed, 18 Mar 2015 09:00:55 UTC +00:00]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/reviews/2
+Completed 302 Found in 12ms (ActiveRecord: 5.5ms)
+
+
+Started GET "/reviews/2" for 127.0.0.1 at 2015-03-18 10:00:55 +0100
+Processing by ReviewsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mReview Load (0.3ms)[0m  SELECT "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT 1  [["id", "2"]]
+  Rendered reviews/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 11ms (Views: 8.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 10:00:55 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 10:00:55 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 10:00:55 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 10:00:55 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 10:00:55 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 10:00:55 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 10:00:55 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 10:00:55 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 10:00:55 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 10:00:55 +0100
+
+
+Started GET "/reviews" for 127.0.0.1 at 2015-03-18 10:00:58 +0100
+Processing by ReviewsController#index as HTML
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews"[0m
+  Rendered reviews/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/funds" for 127.0.0.1 at 2015-03-18 10:01:03 +0100
+Processing by FundsController#index as HTML
+  [1m[35mFund Load (0.2ms)[0m  SELECT "funds".* FROM "funds"
+  Rendered funds/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 10:01:04 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 10:01:04 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 10:01:04 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 10:01:04 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 10:01:04 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 10:01:04 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 10:01:04 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 10:01:04 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 10:01:04 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 10:01:04 +0100
+
+
+Started GET "/funds/1/" for 127.0.0.1 at 2015-03-18 10:01:05 +0100
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFund Load (0.1ms)[0m  [1mSELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 10:01:05 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 10:01:05 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 10:01:05 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 10:01:05 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 10:01:05 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 10:01:05 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 10:01:05 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 10:01:05 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 10:01:05 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 10:01:05 +0100
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 10:01:08 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  Rendered reviews/_form.html.erb (4.0ms)
+  Rendered reviews/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/funds/1" for 127.0.0.1 at 2015-03-18 10:02:32 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFund Load (0.2ms)[0m  SELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 82ms (Views: 54.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 10:02:32 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 10:02:32 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 10:02:32 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 10:02:32 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 10:02:32 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 10:02:32 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 10:02:32 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 10:02:32 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 10:02:32 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 10:02:32 +0100
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 10:02:34 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  [1m[36mFund Load (0.4ms)[0m  [1mSELECT "funds".* FROM "funds" WHERE ('id') LIMIT 1[0m
+  Rendered reviews/_form.html.erb (18.3ms)
+  Rendered reviews/new.html.erb within layouts/application (22.5ms)
+Completed 200 OK in 48ms (Views: 28.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/funds/1/" for 127.0.0.1 at 2015-03-18 10:13:30 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFund Load (0.3ms)[0m  SELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 85ms (Views: 59.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 10:13:30 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 10:13:30 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 10:13:30 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 10:13:30 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 10:13:30 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 10:13:30 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 10:13:30 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 10:13:30 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 10:13:30 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 10:13:30 +0100
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 10:13:32 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  Rendered reviews/_form.html.erb (3.9ms)
+  Rendered reviews/new.html.erb within layouts/application (7.4ms)
+Completed 500 Internal Server Error in 16ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for([@review,@fund]) do |f| %>
+    2:   <% if @review.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+  app/views/reviews/_form.html.erb:1:in `_app_views_reviews__form_html_erb__779409744012070684_70351883580180'
+  app/views/reviews/new.html.erb:3:in `_app_views_reviews_new_html_erb___2899962702609053085_70351883785600'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.7ms)
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 10:13:32 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  Rendered reviews/_form.html.erb (1.8ms)
+  Rendered reviews/new.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for([@review,@fund]) do |f| %>
+    2:   <% if @review.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+  app/views/reviews/_form.html.erb:1:in `_app_views_reviews__form_html_erb__779409744012070684_70351856582000'
+  app/views/reviews/new.html.erb:3:in `_app_views_reviews_new_html_erb___2899962702609053085_70351856670580'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (10.1ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (20.3ms)
+
+
+Started GET "/funds/1/" for 127.0.0.1 at 2015-03-18 10:14:44 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFund Load (0.2ms)[0m  SELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 71ms (Views: 44.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 10:14:44 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 10:14:44 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 10:14:44 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 10:14:44 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 10:14:44 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 10:14:44 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 10:14:44 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 10:14:44 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 10:14:44 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 10:14:44 +0100
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 10:14:46 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  [1m[36mFund Load (0.2ms)[0m  [1mSELECT "funds".* FROM "funds" WHERE ('id') LIMIT 1[0m
+  Rendered reviews/_form.html.erb (3.1ms)
+  Rendered reviews/new.html.erb within layouts/application (6.3ms)
+Completed 500 Internal Server Error in 19ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for([@review,@fund]) do |f| %>
+    2:   <% if @review.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+  app/views/reviews/_form.html.erb:1:in `_app_views_reviews__form_html_erb__1766566071153193264_70196291913260'
+  app/views/reviews/new.html.erb:3:in `_app_views_reviews_new_html_erb___2263057604285505038_70196297001780'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.0ms)
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 10:14:46 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  [1m[35mFund Load (0.2ms)[0m  SELECT "funds".* FROM "funds" WHERE ('id') LIMIT 1
+  Rendered reviews/_form.html.erb (2.1ms)
+  Rendered reviews/new.html.erb within layouts/application (3.6ms)
+Completed 500 Internal Server Error in 7ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for([@review,@fund]) do |f| %>
+    2:   <% if @review.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+  app/views/reviews/_form.html.erb:1:in `_app_views_reviews__form_html_erb__1766566071153193264_70196294029780'
+  app/views/reviews/new.html.erb:3:in `_app_views_reviews_new_html_erb___2263057604285505038_70196294091260'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.2ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.9ms)
+
+
+Started GET "/funds/1/" for 127.0.0.1 at 2015-03-18 10:15:17 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFund Load (0.3ms)[0m  SELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 81ms (Views: 55.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 10:15:17 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 10:15:17 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 10:15:17 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 10:15:17 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 10:15:17 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 10:15:17 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 10:15:17 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 10:15:17 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 10:15:17 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 10:15:17 +0100
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 10:15:19 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  [1m[36mFund Load (0.2ms)[0m  [1mSELECT "funds".* FROM "funds" WHERE ('id') LIMIT 1[0m
+  Rendered reviews/_form.html.erb (3.3ms)
+  Rendered reviews/new.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 18ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for([@review,@fund]) do |f| %>
+    2:   <% if @review.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+  app/views/reviews/_form.html.erb:1:in `_app_views_reviews__form_html_erb__244408716255602678_70207651170420'
+  app/views/reviews/new.html.erb:3:in `_app_views_reviews_new_html_erb___1811799724825741511_70207651388440'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.6ms)
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 10:15:20 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  [1m[35mFund Load (0.2ms)[0m  SELECT "funds".* FROM "funds" WHERE ('id') LIMIT 1
+  Rendered reviews/_form.html.erb (2.4ms)
+  Rendered reviews/new.html.erb within layouts/application (4.5ms)
+Completed 500 Internal Server Error in 10ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for([@review,@fund]) do |f| %>
+    2:   <% if @review.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+  app/views/reviews/_form.html.erb:1:in `_app_views_reviews__form_html_erb__244408716255602678_70207623943220'
+  app/views/reviews/new.html.erb:3:in `_app_views_reviews_new_html_erb___1811799724825741511_70207624023720'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (9.0ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (21.6ms)
+
+
+Started GET "/funds/1/" for 127.0.0.1 at 2015-03-18 10:20:35 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFund Load (0.4ms)[0m  SELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 82ms (Views: 54.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 10:20:35 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 10:20:35 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 10:20:35 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 10:20:35 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 10:20:35 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 10:20:35 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 10:20:35 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 10:20:35 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 10:20:35 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 10:20:35 +0100
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 10:20:37 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  [1m[36mFund Load (0.1ms)[0m  [1mSELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered reviews/_form.html.erb (32.2ms)
+  Rendered reviews/new.html.erb within layouts/application (36.0ms)
+Completed 200 OK in 48ms (Views: 41.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/funds/1/reviews" for 127.0.0.1 at 2015-03-18 10:20:42 +0100
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9eLqnIlP4RmF38OLINLpErREMIjFc89yDIhDrq7A/sU=", "review"=>{"title"=>"asdfasdf", "opinion"=>"asdfadsf", "pitchingEfficiency"=>"", "favorableDealTerms"=>"", "operatingCompetence"=>"", "trackRecord"=>"", "fund_id"=>""}, "commit"=>"Create Review", "fund_id"=>"1"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.8ms)[0m  [1mINSERT INTO "reviews" ("created_at", "opinion", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Wed, 18 Mar 2015 09:20:42 UTC +00:00], ["opinion", "asdfadsf"], ["title", "asdfasdf"], ["updated_at", Wed, 18 Mar 2015 09:20:42 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/reviews/3
+Completed 302 Found in 11ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/reviews/3" for 127.0.0.1 at 2015-03-18 10:20:42 +0100
+Processing by ReviewsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  Rendered reviews/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 14ms (Views: 10.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 10:20:42 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 10:20:42 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 10:20:42 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 10:20:42 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 10:20:42 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 10:20:42 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 10:20:42 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 10:20:42 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 10:20:42 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 10:20:42 +0100
+
+
+Started GET "/reviews" for 127.0.0.1 at 2015-03-18 10:20:45 +0100
+Processing by ReviewsController#index as HTML
+  [1m[35mReview Load (0.2ms)[0m  SELECT "reviews".* FROM "reviews"
+  Rendered reviews/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/funds" for 127.0.0.1 at 2015-03-18 10:23:12 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FundsController#index as HTML
+  [1m[35mFund Load (0.2ms)[0m  SELECT "funds".* FROM "funds"
+  Rendered funds/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 72ms (Views: 57.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 10:23:12 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 10:23:12 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 10:23:12 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 10:23:12 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 10:23:12 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 10:23:12 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 10:23:12 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 10:23:12 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 10:23:12 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 10:23:12 +0100
+
+
+Started GET "/funds/1/" for 127.0.0.1 at 2015-03-18 10:23:13 +0100
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mFund Load (0.2ms)[0m  [1mSELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 10:23:13 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 10:23:13 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 10:23:13 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 10:23:13 +0100
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 10:23:13 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 10:23:13 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 10:23:13 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 10:23:13 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 10:23:13 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 10:23:13 +0100
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 10:23:14 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  [1m[35mFund Load (0.2ms)[0m  SELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 500 Internal Server Error in 3ms
+
+NoMethodError (undefined method `Review' for #<Fund:0x007fb8b2f7e528>):
+  app/controllers/reviews_controller.rb:18:in `new'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.2ms)
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 10:23:14 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  [1m[36mFund Load (0.1ms)[0m  [1mSELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Completed 500 Internal Server Error in 2ms
+
+NoMethodError (undefined method `Review' for #<Fund:0x007fb8b3b9dcf0>):
+  app/controllers/reviews_controller.rb:18:in `new'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.3ms)
+
+
+Started GET "/funds/1/" for 127.0.0.1 at 2015-03-18 10:23:54 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFund Load (0.3ms)[0m  SELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 79ms (Views: 50.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 10:23:54 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 10:23:54 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 10:23:54 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 10:23:54 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 10:23:54 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 10:23:54 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 10:23:54 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 10:23:54 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 10:23:54 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 10:23:54 +0100
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 10:23:56 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  [1m[36mFund Load (0.1ms)[0m  [1mSELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered reviews/_form.html.erb (19.6ms)
+  Rendered reviews/new.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 62ms (Views: 29.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/funds/1/reviews" for 127.0.0.1 at 2015-03-18 10:24:01 +0100
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9eLqnIlP4RmF38OLINLpErREMIjFc89yDIhDrq7A/sU=", "review"=>{"title"=>"asdf", "opinion"=>"asdf", "pitchingEfficiency"=>"", "favorableDealTerms"=>"", "operatingCompetence"=>"", "trackRecord"=>"", "fund_id"=>"1"}, "commit"=>"Create Review", "fund_id"=>"1"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (5.4ms)[0m  [1mINSERT INTO "reviews" ("created_at", "fund_id", "opinion", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", Wed, 18 Mar 2015 09:24:01 UTC +00:00], ["fund_id", 1], ["opinion", "asdf"], ["title", "asdf"], ["updated_at", Wed, 18 Mar 2015 09:24:01 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/reviews/4
+Completed 302 Found in 13ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/reviews/4" for 127.0.0.1 at 2015-03-18 10:24:01 +0100
+Processing by ReviewsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mReview Load (0.3ms)[0m  [1mSELECT "reviews".* FROM "reviews" WHERE "reviews"."id" = ? LIMIT 1[0m  [["id", "4"]]
+  Rendered reviews/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 12ms (Views: 8.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 10:24:01 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 10:24:01 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 10:24:01 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 10:24:01 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 10:24:01 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 10:24:01 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 10:24:01 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 10:24:01 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 10:24:01 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 10:24:01 +0100
+
+
+Started GET "/reviews" for 127.0.0.1 at 2015-03-18 10:24:04 +0100
+Processing by ReviewsController#index as HTML
+  [1m[35mReview Load (0.2ms)[0m  SELECT "reviews".* FROM "reviews"
+  Rendered reviews/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/funds/1/" for 127.0.0.1 at 2015-03-18 10:24:45 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FundsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFund Load (0.2ms)[0m  SELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered funds/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 82ms (Views: 53.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-18 10:24:45 +0100
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-03-18 10:24:46 +0100
+
+
+Started GET "/assets/funds.css?body=1" for 127.0.0.1 at 2015-03-18 10:24:46 +0100
+
+
+Started GET "/assets/reviews.css?body=1" for 127.0.0.1 at 2015-03-18 10:24:46 +0100
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-18 10:24:46 +0100
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-18 10:24:46 +0100
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-18 10:24:46 +0100
+
+
+Started GET "/assets/funds.js?body=1" for 127.0.0.1 at 2015-03-18 10:24:46 +0100
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-18 10:24:46 +0100
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-18 10:24:46 +0100
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 10:24:47 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  [1m[36mFund Load (0.2ms)[0m  [1mSELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered reviews/_form.html.erb (17.5ms)
+  Rendered reviews/new.html.erb within layouts/application (32.0ms)
+Completed 500 Internal Server Error in 62ms
+
+ActionView::Template::Error (undefined local variable or method `reviews_path' for #<#<Class:0x007f921b699808>:0x007f921b692b70>):
+    2: 
+    3: <%= render 'form' %>
+    4: 
+    5: <%= link_to 'Back', reviews_path %>
+  app/views/reviews/new.html.erb:5:in `_app_views_reviews_new_html_erb___2592822503737884102_70132750909980'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.7ms)
+
+
+Started GET "/funds/1/reviews/new" for 127.0.0.1 at 2015-03-18 10:24:47 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"fund_id"=>"1"}
+  [1m[35mFund Load (0.1ms)[0m  SELECT "funds".* FROM "funds" WHERE "funds"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered reviews/_form.html.erb (4.8ms)
+  Rendered reviews/new.html.erb within layouts/application (22.4ms)
+Completed 500 Internal Server Error in 27ms
+
+ActionView::Template::Error (undefined local variable or method `reviews_path' for #<#<Class:0x007f921b699808>:0x007f921d8c7bf0>):
+    2: 
+    3: <%= render 'form' %>
+    4: 
+    5: <%= link_to 'Back', reviews_path %>
+  app/views/reviews/new.html.erb:5:in `_app_views_reviews_new_html_erb___2592822503737884102_70132768844780'
+
+
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/davidpombar/.rvm/gems/ruby-head/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (12.2ms)
