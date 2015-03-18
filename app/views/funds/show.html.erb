@@ -40,6 +40,10 @@
   <%= @fund.maxTicket %>
 </p>
 
+<p>
+  <%= image_tag @fund.logo.url(:medium) %>
+</p>
+
 <%= link_to 'Edit', edit_fund_path(@fund) %> |
 <%= link_to 'Create review', new_fund_review_path(@fund) %>|
 <%= link_to 'Back', funds_path %>

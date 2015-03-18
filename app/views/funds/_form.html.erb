@@ -43,7 +43,11 @@
     <%= f.label :maxTicket %><br>
     <%= f.number_field :maxTicket %>
   </div>
-  <div class="actions">
+  <div>
+    <%= f.file_field :logo %>
+  </div>
+
+    <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>

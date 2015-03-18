@@ -4,9 +4,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
-#group :development, :test do
-#  gem 'sqlite3'
-#end
+group :development, :test do
+  gem 'sqlite3'
+end
 
 # Postgree SQL support for Heroku
 group :production do
@@ -41,6 +41,8 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+
+gem 'paperclip'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
