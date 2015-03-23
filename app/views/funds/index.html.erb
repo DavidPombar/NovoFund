@@ -1,37 +1,29 @@
 <h1>Listing funds</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Profile</th>
-      <th>Overview</th>
-      <th>Url</th>
-      <th>Address</th>
-      <th>Stage</th>
-      <th>Minticket</th>
-      <th>Maxticket</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @funds.each do |fund| %>
-      <tr>
-        <td><%= fund.name %></td>
-        <td><%= fund.profile %></td>
-        <td><%= fund.overview %></td>
-        <td><%= fund.url %></td>
-        <td><%= fund.address %></td>
-        <td><%= fund.stage %></td>
-        <td><%= fund.minTicket %></td>
-        <td><%= fund.maxTicket %></td>
-        <td><%= link_to 'Show', fund %></td>
-        <td><%= link_to 'Edit', edit_fund_path(fund) %></td>
-        <td><%= link_to 'Destroy', fund, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= fund.name %></h3>
+        </div>
+        <div class="panel-body">
+          <div class="media">
+            <div class="media-left media-middle">
+              <img class="media-object" alt="<%= fund.name %> logo" src="<%= fund.logo.url(:thumb) %>">
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">Investment between: <%= fund.minTicket %>€ to <%= fund.maxTicket %>€ </h4>
+              <p><%= fund.overview %></p>
+            </div>
+          </div>
+          <div>
+            <p><%= link_to 'Show', fund %>|<%= link_to 'Edit', edit_fund_path(fund) %>|<%= link_to 'Destroy', fund, method: :delete, data: { confirm: 'Are you sure?' } %>|<%= link_to 'View reviews', fund_reviews_path(fund) %></p>
+          </div>
+        </div>
+      </div>
+  
     <% end %>
   </tbody>
 </table>
