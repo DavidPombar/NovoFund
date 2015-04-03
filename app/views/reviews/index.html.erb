@@ -1,35 +1,30 @@
 <h1>Listing reviews</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Opinion</th>
-      <th>Pitchingefficiency</th>
-      <th>Favorabledealterms</th>
-      <th>Operatingcompetence</th>
-      <th>Trackrecord</th>
-      <th>Fund</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @reviews.each do |review| %>
-      <tr>
-        <td><%= review.title %></td>
-        <td><%= review.opinion %></td>
-        <td><%= review.pitchingEfficiency %></td>
-        <td><%= review.favorableDealTerms %></td>
-        <td><%= review.operatingCompetence %></td>
-        <td><%= review.trackRecord %></td>
-        <td><%= review.fund_id %></td>
-        <td><%= link_to 'Show', review %></td>
-        <td><%= link_to 'Edit', edit_review_path(review) %></td>
-        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <% @fund = Fund.find(review.fund_id) %>
+          <h3 class="panel-title"><%= review.title %> about <%= link_to @fund.name, @fund %></h3>
+        </div>
+        <div class="panel-body">
+          <div class="media">
+            <div class="media-body">
+              <p><%= review.opinion %></p>
+            </div>
+            <div>
+              <p>Pitching efficiency: <%= review.pitchingEfficiency %></p>
+              <p>Favorable deal terms: <%= review.favorableDealTerms %></p>
+              <p>Operating Competence: <%= review.operatingCompetence %></p>
+              <p>Track Record: <%= review.trackRecord %></p>
+            </div>
+          </div>
+          <div>
+            <p><%= link_to 'Show', review %>|<%= link_to 'Edit', edit_review_path(review) %>|<%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          </div>
+        </div>
+      </div>
     <% end %>
   </tbody>
 </table>
