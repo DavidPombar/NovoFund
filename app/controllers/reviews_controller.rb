@@ -4,9 +4,14 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
-        @reviews = Review.all
+    if ( params[:fund_id] )
+      @fund = Fund.find(params[:fund_id])
+      @reviews = @fund.reviews
+    else
+      @reviews = Review.all
+    end
   end
-
+  
   # GET /reviews/1
   # GET /reviews/1.json
   def show
